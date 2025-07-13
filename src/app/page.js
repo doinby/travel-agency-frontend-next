@@ -1,20 +1,19 @@
+const { getHomePage } = require('@/data/loaders');
+const { notFound } = require('next/navigation');
+
 async function loader() {
-	const URL_BASE = 'http://localhost:1337';
-	const path = '/api/home-page';
-	const url = new URL(path, URL_BASE);
-
-	const response = await fetch(url.href);
-	const data = await response.json();
-
+	const data = await getHomePage();
+	if (!data) notFound();
+	// console.log(data);
 	return { ...data.data };
 }
 
 export default async function HomeRoute() {
 	const data = await loader();
-	console.log('data:', data);
+	// console.log(data);
 	return (
 		<>
-			<h1 className='text-2xl text-green-500'>{data.title}</h1>
+			<h1>{data.title}</h1>
 			<p>{data.desc}</p>
 		</>
 	);
