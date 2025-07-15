@@ -1,3 +1,6 @@
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/sections/HeroSection';
+
 const { getHomePage } = require('@/data/loaders');
 const { notFound } = require('next/navigation');
 
@@ -13,8 +16,8 @@ export default async function HomeRoute() {
 	// console.log(data);
 	return (
 		<>
-			<h1>{data.title}</h1>
-			<p>{data.desc}</p>
+			<Navbar />
+			<HeroSection props={data.sections[0]} />
 		</>
 	);
 }
