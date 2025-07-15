@@ -9,7 +9,6 @@ export default async function fetchAPI(url, options) {
 		...(body && { body: JSON.stringify(body) }),
 		...(next && { next }),
 	};
-	console.log(headers);
 
 	try {
 		const res = await fetch(url, headers);
