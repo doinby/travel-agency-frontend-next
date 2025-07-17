@@ -1,26 +1,22 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap');
+@import 'tailwindcss';
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+	--color-turquoise: #14a998;
+	--color-orange: #d7c094;
+	--font-display: 'DM Serif Display';
+	--font-sans: 'DM Sans', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+	body {
+		@apply font-sans;
+	}
+	h1 {
+		@apply text-6xl font-display;
+	}
+	button {
+		@apply btn rounded-3xl font-bold uppercase text-white;
+	}
 }

@@ -13,11 +13,12 @@ async function loader() {
 
 export default async function HomeRoute() {
 	const data = await loader();
+	const sections = data?.sections || [];
 	// console.log(data);
 	return (
 		<>
 			<Navbar />
-			<HeroSection props={data.sections[0]} />
+			<HeroSection props={sections[0]} />
 		</>
 	);
 }
